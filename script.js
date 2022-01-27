@@ -28,7 +28,7 @@ btnPlus.addEventListener('click', () => {
     value++;
     header.classList.add('hide-header');
     numValue.textContent = value;
-    if(value > 0){
+    if(value > 1){
         btnMin.disabled = false;
     }
     return value;
@@ -38,7 +38,7 @@ btnMin.addEventListener('click', () => {
     value--;
     numValue.textContent = value;
     header.classList.remove('hide-header');
-    if(value < 1){
+    if(value < 2){
         btnMin.disabled = true;
     }
     return value;
@@ -86,6 +86,10 @@ window.addEventListener('scroll', () => {
         header.classList.add('scroll-header');
     }else{
         header.classList.remove('scroll-header');
+        header.classList.add('header-shown');
+        setTimeout(() => {  
+            header.classList.remove('header-shown');
+        }, 1010);
     }
 });
 
