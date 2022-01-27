@@ -97,22 +97,18 @@ header{
 
 @keyframes scroll-down {
     0% {
-        opacity: 1;
         height: 40px;
     }
     100%{
-        opacity: 0;
         height: 0;
     }
 }
 
 @keyframes scroll-up {
     0%{
-        opacity: 0;
         height: 0;
     }
     100%{
-        opacity: 1;
         height: 40px;
     }
 }
@@ -124,22 +120,18 @@ header{
 
     @keyframes scroll-down {
         0% {
-            opacity: 1;
             height: 67px;
         }
         100%{
-            opacity: 0;
             height: 0;
         }
     }
     
     @keyframes scroll-up {
         0%{
-            opacity: 0;
             height: 0;
         }
         100%{
-            opacity: 1;
             height: 67px;
         }
     }
