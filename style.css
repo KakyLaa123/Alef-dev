@@ -502,11 +502,37 @@ main{
 
 .product-card__prod-buying__message{
     position: fixed;
-    top: 30%;
+    top: 4%;
     right: 2%;
     background: #333333;
     color: #ffffff;
     padding: 10px;
+}
+
+.product-card__prod-buying__message__showing{
+    animation: show-message 1s forwards;
+}
+
+.product-card__prod-buying__message__hidden{
+    animation: hide-message 1s forwards;
+}
+
+@keyframes show-message{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes hide-message{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 
 .message{

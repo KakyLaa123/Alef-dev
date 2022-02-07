@@ -128,24 +128,38 @@ function valueFunctional(){
     toBag.addEventListener('click', (e) => {
         e.preventDefault();
         addMessage.classList.remove('message');
+        addMessage.classList.add('product-card__prod-buying__message__showing');
         addMessage.textContent = `Товар ${nameProd.textContent} в количестве ${value} добавлен в корзину`;
         toBag.disabled = true;
         setTimeout(() => {    
+            addMessage.classList.add('product-card__prod-buying__message__hidden');
+        }, 9000);
+        setTimeout(() => {    
+            addMessage.classList.remove('product-card__prod-buying__message__showing');
+            addMessage.classList.remove('product-card__prod-buying__message__hidden');
             addMessage.classList.add('message');
             addMessage.textContent = '';
             toBag.disabled = false;
-        }, 15000);
+        }, 10000);
     });
 
     addToFav.addEventListener('click', () => {
         addMessage.classList.remove('message');
+        addMessage.classList.add('product-card__prod-buying__message__showing');
         addMessage.textContent = `Товар ${nameProd.textContent} в количестве ${value} добавлен в избранное`;
         addToFav.disabled = true;
+        toBag.disabled = true;
         setTimeout(() => {    
+            addMessage.classList.add('product-card__prod-buying__message__hidden');
+        }, 9000);
+        setTimeout(() => {    
+            addMessage.classList.remove('product-card__prod-buying__message__showing');
+            addMessage.classList.remove('product-card__prod-buying__message__hidden');
             addMessage.classList.add('message');
             addMessage.textContent = '';
             addToFav.disabled = false;
-        }, 15000);
+            toBag.disabled = false;
+        }, 10000);
     });
 }
 
@@ -195,6 +209,7 @@ function headerScroll(){
         if(window.scrollY > 1){
             header.classList.add('scroll-header');
             headerMenuList.classList.add('hidden');
+            headerMenu.style.opacity = 1;
         }else{
             header.classList.remove('scroll-header');
             header.classList.add('header-shown');
