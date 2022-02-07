@@ -11,6 +11,7 @@ header{
 }
 
 .header{
+    position: relative;
     max-width: 1390px;
     height: 40px;
     margin: 0 auto;
@@ -30,11 +31,16 @@ header{
     color: #333333;
 }
 
+.header__list__reference:hover{
+    text-decoration: underline #333333;
+}
+
 .header__list__button{
     border: 0;
     background: transparent;
     padding: 0;
     display: none;
+    cursor: pointer;
 }
 
 .header__header-menu{
@@ -50,17 +56,76 @@ header{
 
 .header__header-menu-close{
     position: absolute;
-    right: 18px;
-    top: 20px;
+    right: 22px;
+    top: 6px;
     background: transparent;
     border: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .header__header-menu-list{
     list-style-type: none;
     margin: 80px 0 43px 30px;
     padding: 0;
+}
+
+.header__header-menu-list_shown{
+    animation: menu-list-shown 1.2s forwards;
+}
+
+.header__header-menu-list_hidden{
+    animation: menu-list-hidden 0.2s forwards;
+}
+
+@keyframes menu-list-shown {
+    0%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes menu-list-hidden {
+    0%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.header__header-menu__shown{
+    animation: menu-shown 1s forwards;
+}
+
+.header__header-menu__hidden{
+    animation: menu-hidden 1s forwards;
+}
+
+@keyframes menu-shown{
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 277px;
+    }
+}
+
+@keyframes menu-hidden{
+    0%{
+        height: 277px;
+    }
+    100%{
+        height: 0px;
+    }
 }
 
 .header__header-menu-item{
@@ -116,6 +181,11 @@ header{
 @media (max-width: 400px) {
     .header{
         height: 67px;
+    }
+
+    .header__header-menu-close{
+        right: 24px;
+        top: 20px;
     }
 
     @keyframes scroll-down {
@@ -176,6 +246,22 @@ main{
     height: auto;
 }
 
+.product-card__main-photo_changing{
+    animation: change-photo 1s;
+}
+
+@keyframes change-photo {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .product-card__photos-list{
     position: absolute;
     top: 0;
@@ -192,6 +278,10 @@ main{
 .product-card__small-photo{
     width: 70px;
     height: auto;
+}
+
+.product-card__small-photo:hover{
+    cursor: pointer;
 }
 
 .product-card__prod{
@@ -316,18 +406,22 @@ main{
     width: 315px;
     padding: 12px 16px;
     appearance: none;
-    background: url("img/arrow-down.png") no-repeat right;
+    background: url("img/arrow-down.png") no-repeat 283px;
     margin-bottom: 12px;
     font-family: "Open Sans", sans-serif;
     color: #333333;
     font-size: 14px;
     letter-spacing: 0.04em;
-
 }
 
 .product-card__prod-size-info{
     color: #333333;
     text-decoration: underline #cecece;
+    -webkit-text-decoration: underline #cecece;
+}
+
+.product-card__prod-size-info:hover{
+    text-decoration: underline #333333;
 }
 
 /* Контейнер с корзиной */
@@ -382,13 +476,26 @@ main{
     border: 0;
     margin-right: 4px;
     border-radius: 0;
-    -webkit-appearance: none
+    -webkit-appearance: none;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.04em;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.product-card__prod-buying-buy:hover{
+    cursor: pointer;
+    text-decoration: underline #ffffff;
 }
 
 .product-card__prod-buying-favorite{
     border: 0;
     background: #333333;
     padding: 10px 10px 7px 10px;
+}
+
+.product-card__prod-buying-favorite:hover{
+    cursor: pointer;
 }
 
 /* Всплывающее сообщение */
@@ -411,6 +518,11 @@ main{
 .product-card__prod-buy-one-click{
     color: #333333;
     text-decoration: underline #cecece;
+    -webkit-text-decoration: underline #cecece;
+}
+
+.product-card__prod-buy-one-click:hover{
+    text-decoration: underline #333333;
 }
 
 /* Информация о продукте */
@@ -442,6 +554,11 @@ main{
     margin-left: 6.5px;
     color: #333333;
     text-decoration: underline #cecece;
+    -webkit-text-decoration: underline #cecece;
+}
+
+.product-card__prod-reference:hover{
+    text-decoration: underline #333333;
 }
 
 /* Ссылка на все стили */
@@ -451,6 +568,7 @@ main{
     text-align: center;
     color: #333333;
     text-decoration: underline #cecece;
+    -webkit-text-decoration: underline #cecece;
     margin-bottom: 24px;
 }
 
@@ -668,8 +786,13 @@ main{
 
     .other-products__product-likes__hover{
         bottom: 15px;
-        left: 40%;
-        right: 47%;
+        left: 38%;
+        color: #ffffff;
+    }
+
+    .other-products__first .other-products__product-likes__hover{
+        bottom: 15px;
+        left: 45%;
         color: #ffffff;
     }
 
@@ -759,11 +882,16 @@ footer{
 }
 
 .footer__form-btn{
-    padding: 8px 28px;
+    padding: 8px 29px;
     background:transparent;
     border: 1px solid #333333;
     -webkit-appearance: none;
     color: #333333;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.04em;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .footer__form-btn:hover{
